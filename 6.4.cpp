@@ -50,7 +50,7 @@ int main (){
     Employee Oleg;
     Employee Lena;
 
-    Oleg.setAge(40);
+    Oleg.setAge(40); 
     Oleg.setYearsOfService(18);
     Oleg.setSalary(2500);
 
