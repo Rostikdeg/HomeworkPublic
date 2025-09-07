@@ -1,14 +1,13 @@
 #include <iostream>
 using namespace std;
 
-template <typename T>
 class List {
 private:
     class ListCell {
     public:
-        T val;
+        int val;
         ListCell* next;
-        ListCell(T value, ListCell* cell = 0) : val(value), next(cell) {}
+        ListCell(int value, ListCell* cell = 0) : val(value), next(cell) {}
     };
 
     ListCell* head;
@@ -25,13 +24,13 @@ public:
         }
     }
 
-    void insert(T value) {
+    void insert(int value) {
         head = new ListCell(value, head);
         if (!tail) tail = head;
         theCount++;
     }
 
-    void append(T value) {
+    void append(int value) {
         ListCell* cell = new ListCell(value);
         if (tail) tail->next = cell;
         else head = cell;
@@ -39,7 +38,7 @@ public:
         theCount++;
     }
 
-    bool is_present(T value) const {
+    bool is_present(int value) const {
         for (ListCell* p = head; p; p = p->next) {
             if (p->val == value) return true;
         }

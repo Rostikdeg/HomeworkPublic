@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 template <typename T>
@@ -25,12 +26,6 @@ public:
         }
     }
 
-    void insert(T value) {
-        head = new ListCell(value, head);
-        if (!tail) tail = head;
-        theCount++;
-    }
-
     void append(T value) {
         ListCell* cell = new ListCell(value);
         if (tail) tail->next = cell;
@@ -45,7 +40,25 @@ public:
         }
         return false;
     }
-
-    bool is_empty() const { return head == 0; }
-    int count() const { return theCount; }
 };
+
+class Cat {
+public:
+    string name;
+    Cat(string n = "Безіменний") : name(n) {}
+    bool operator==(const Cat& other) const {
+        return name == other.name;
+    }
+};
+
+int main() {
+    List<string> listOfStrings;
+    List<Cat> listOfCats;
+    List<int> listOfInts;
+
+    listOfStrings.append("Привіт");
+    listOfCats.append(Cat("Felix"));
+    listOfInts.append(100);
+
+    return 0;
+}
